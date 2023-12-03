@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Source') {
             steps {
-                git 'https://github.com/jeffersonricardherrera063/jenkins'
+                git 'https://github.com/jeffersonricardherrera063/jenkins.git'
             }
         }
         stage('Build') {
@@ -22,5 +22,4 @@ pipeline {
             }
         }
     }
-    
 }
