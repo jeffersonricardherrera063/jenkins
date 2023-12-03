@@ -15,7 +15,7 @@ pipeline {
         stage('Unit tests') {
             steps {
                 sh 'make test-unit'
-                archiveArtifacts artifacts: 'results/*.xml'
+                archiveArtifacts artifacts: 'home/ubuntu/*.xml'
             }
         }
         stage('mail') {
