@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'docker'
-    }
+    agent any
     stages {
         stage('Source') {
             steps {
@@ -18,6 +16,11 @@ pipeline {
             steps {
                 sh 'make test-unit'
                 archiveArtifacts artifacts: 'results/*.xml'
+            }
+        }
+        stage('mail') {
+            steps {
+                echo 'Enviando correo ...'
             }
         }
     }
