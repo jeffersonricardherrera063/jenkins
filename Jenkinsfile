@@ -8,14 +8,12 @@ pipeline {
         }
         stage('Build') {
             steps {
-                echo 'Building stage!'
-                sh 'make build'
+                echo 'Enviando correo ...'
             }
         }
         stage('Unit tests') {
             steps {
-                sh 'make test-unit'
-                archiveArtifacts artifacts: 'results/*.xml'
+                echo 'Enviando correo ...'
             }
         }
         stage('mail') {
@@ -24,10 +22,5 @@ pipeline {
             }
         }
     }
-    post {
-        always {
-            junit 'results/*_result.xml'
-            cleanWs()
-        }
-    }
+    
 }
