@@ -26,7 +26,7 @@ pipeline {
     }
     post {
         always {
-            junit 'results/*_result.xml'
+            junit 'home/ubuntu/*_result.xml'
             cleanWs()
         }
     }
