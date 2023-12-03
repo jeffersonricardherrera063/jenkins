@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Source') {
             steps {
-                git 'https://github.com/jeffersonricardherrera063/jenkins.git'
+                git 'https://github.com/jeffersonricardherrera063/jenkins'
             }
         }
         stage('Build') {
@@ -15,7 +15,7 @@ pipeline {
         stage('Unit tests') {
             steps {
                 sh 'make test-unit'
-                archiveArtifacts artifacts: 'home/ubuntu/*.xml'
+                archiveArtifacts artifacts: 'results/*.xml'
             }
         }
         stage('mail') {
@@ -26,7 +26,7 @@ pipeline {
     }
     post {
         always {
-            junit 'home/ubuntu/*_result.xml'
+            junit 'results/*_result.xml'
             cleanWs()
         }
     }
